@@ -20,6 +20,8 @@ import TimMulai from './TimMulai';
 import TimHasil from './TimHasil';
 import Account from './Account';
 import Riwayat from './Riwayat';
+import AccountEdit from './AccountEdit';
+import SEdit from './SEdit';
 
 // NEW
 
@@ -61,6 +63,8 @@ export {
 
 
   Account,
-  Riwayat
+  Riwayat,
+  AccountEdit,
+  SEdit
 
 };

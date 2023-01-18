@@ -10,7 +10,7 @@ import {
     ActivityIndicator,
 } from 'react-native';
 import { windowWidth, fonts } from '../../utils/fonts';
-import { getData, storeData, urlAPI, urlApp, urlAvatar } from '../../utils/localStorage';
+import { getData, MYAPP, storeData, urlAPI, urlApp, urlAvatar } from '../../utils/localStorage';
 import { colors } from '../../utils/colors';
 import { MyButton, MyGap } from '../../components';
 import { Icon } from 'react-native-elements';
@@ -45,7 +45,7 @@ export default function ({ navigation, route }) {
     }, [isFocused]);
 
     const btnKeluar = () => {
-        Alert.alert('INFO WKS', 'Apakah kamu yakin akan keluar ?', [
+        Alert.alert(MYAPP, 'Apakah kamu yakin akan keluar ?', [
             {
                 text: 'Batal',
                 style: "cancel"
@@ -106,13 +106,41 @@ export default function ({ navigation, route }) {
 
                 {/* data detail */}
                 <View style={{ padding: 10, flex: 1 }}>
+
+                    <View style={{
+                        marginVertical: 10,
+                        justifyContent: 'center',
+                        alignItems: 'center'
+                    }}>
+                        <Image style={{
+                            width: 100,
+                            height: 100,
+                            borderRadius: 50,
+                        }} source={{
+                            uri: user.foto_user,
+                        }} />
+                    </View>
                     <MyList label="NIK" value={user.nik} />
                     <MyList label="Nama Lengkap" value={user.nama_lengkap} />
                     <MyList label="Email" value={user.email} />
                     <MyList label="Telepon / Whatsapp" value={user.telepon} />
+
                 </View>
                 <View style={{ padding: 10, flexDirection: 'row', justifyContent: 'space-around' }}>
 
+                    <View style={{
+                        flex: 1,
+                        margin: 5
+                    }}>
+                        <MyButton
+                            onPress={() => navigation.navigate('AccountEdit', user)}
+                            title="Edit Profile"
+                            colorText={colors.white}
+                            iconColor={colors.white}
+                            warna={colors.primary}
+                            Icons="log-out-outline"
+                        />
+                    </View>
                     <View style={{
                         flex: 1,
                         margin: 5

@@ -24,6 +24,8 @@ import {
   TimHasil,
   Account,
   Riwayat,
+  AccountEdit,
+  SEdit,
 } from '../pages';
 import { colors } from '../utils';
 
@@ -59,6 +61,33 @@ export default function Router() {
         options={{
           headerShown: true,
           headerTitle: 'Input Manual',
+          headerStyle: {
+            backgroundColor: colors.primary,
+          },
+          headerTintColor: '#fff',
+        }}
+      />
+
+
+      <Stack.Screen
+        name="AccountEdit"
+        component={AccountEdit}
+        options={{
+          headerShown: true,
+          headerTitle: 'Edit Profile',
+          headerStyle: {
+            backgroundColor: colors.primary,
+          },
+          headerTintColor: '#fff',
+        }}
+      />
+
+      <Stack.Screen
+        name="SEdit"
+        component={SEdit}
+        options={{
+          headerShown: true,
+          headerTitle: 'Edit Data Sensus',
           headerStyle: {
             backgroundColor: colors.primary,
           },

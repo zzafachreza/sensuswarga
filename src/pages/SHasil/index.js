@@ -5,6 +5,7 @@ import Pdf from 'react-native-pdf';
 import axios from 'axios';
 import { apiURL } from '../../utils/localStorage';
 import { showMessage } from 'react-native-flash-message';
+import { MyGap } from '../../components';
 
 
 
@@ -104,7 +105,7 @@ export default function SHasil({ navigation, route }) {
             }}>
 
                 <MyListData label='No KK*' value={item.nomor_kk} />
-                <MyListData label='Type*' value={item.tipe_rumah} />
+                <MyListData label='Type Rumah*' value={item.tipe_rumah} />
                 <MyListData label='Blok*' value={item.blok_rumah} />
                 <MyListData label='No. Rumah*' value={item.nomor_rumah} />
                 <MyListData label='NIK Karyawan' value={item.nik_karyawan} />
@@ -122,9 +123,16 @@ export default function SHasil({ navigation, route }) {
                 <MyListData label='Agama' value={item.agama} />
                 <MyListData label='Suku' value={item.suku} />
                 <MyListData label='Pendidikan Terakhir yang ditamatkan*' value={item.pendidikan_terakhir} />
+                <Text style={{
+                    marginTop: 5,
+                    fontFamily: fonts.secondary[600],
+                    fontSize: 12,
+                    color: colors.primary,
+                }}>Pendidikan Sekarang</Text>
                 <MyListData label='Jenjang Pendidikan' value={item.jenjang_pendidikan} />
                 <MyListData label='Nama Sekolah' value={item.nama_sekolah} />
                 <MyListData label='Jenis Sekolah' value={item.jenis_sekolah} />
+                <MyGap jarak={5} />
                 <MyListData label='Alasan Jika Anak Tidak Sekolah' value={item.alasan_anak_tidak_sekolah} />
                 <MyListData label='Status Pekerjaan*' value={item.status_pekerjaan} />
                 <MyListData label='Status Tinggal*' value={item.status_tinggal} />
@@ -138,43 +146,67 @@ export default function SHasil({ navigation, route }) {
 
 
 
-            <TouchableOpacity onPress={() => {
-                Alert.alert('Sensus Penduduk', 'Apakah kamu yakin akan hapus ini ?', [
-                    {
-                        style: 'cancel',
-                        text: 'Batal'
-                    },
-                    {
-                        style: 'default',
-                        text: 'Hapus',
-                        onPress: () => {
-
-                            console.log(item.id_penduduk);
-                            axios.post(apiURL + 'delete_penduduk', {
-                                id_penduduk: item.id_penduduk
-                            }).then(res => {
-                                console.log(res.data);
-                                navigation.goBack();
-                                showMessage({
-                                    type: 'success',
-                                    message: 'Data berhasil dihapus !'
-                                })
-                            })
-
-                        }
-                    }
-                ])
-            }} style={{
-                padding: 10,
-                backgroundColor: colors.danger
+            <View style={{
+                flexDirection: 'row'
             }}>
-                <Text style={{
-                    fontFamily: fonts.secondary[600],
-                    fontSize: windowWidth / 30,
-                    color: colors.white,
-                    textAlign: 'center'
-                }}>Hapus</Text>
-            </TouchableOpacity>
+
+                <View style={{
+                    flex: 1
+                }}>
+                    <TouchableOpacity onPress={() => {
+                        Alert.alert('Sensus Penduduk', 'Apakah kamu yakin akan hapus ini ?', [
+                            {
+                                style: 'cancel',
+                                text: 'Batal'
+                            },
+                            {
+                                style: 'default',
+                                text: 'Hapus',
+                                onPress: () => {
+
+                                    console.log(item.id_penduduk);
+                                    axios.post(apiURL + 'delete_penduduk', {
+                                        id_penduduk: item.id_penduduk
+                                    }).then(res => {
+                                        console.log(res.data);
+                                        navigation.goBack();
+                                        showMessage({
+                                            type: 'success',
+                                            message: 'Data berhasil dihapus !'
+                                        })
+                                    })
+
+                                }
+                            }
+                        ])
+                    }} style={{
+                        padding: 15,
+                        backgroundColor: colors.danger
+                    }}>
+                        <Text style={{
+                            fontFamily: fonts.secondary[600],
+                            fontSize: windowWidth / 30,
+                            color: colors.white,
+                            textAlign: 'center'
+                        }}>Hapus</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={{
+                    flex: 1,
+                }}>
+                    <TouchableOpacity onPress={() => navigation.navigate('SEdit', item)} style={{
+                        padding: 15,
+                        backgroundColor: colors.secondary
+                    }}>
+                        <Text style={{
+                            fontFamily: fonts.secondary[600],
+                            fontSize: windowWidth / 30,
+                            color: colors.white,
+                            textAlign: 'center'
+                        }}>Edit</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
         </View>
     )
 
