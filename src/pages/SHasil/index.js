@@ -48,22 +48,7 @@ export default function SHasil({ navigation, route }) {
                 justifyContent: 'center',
                 paddingHorizontal: 10,
             }}>
-                <View style={{
-                    flexDirection: 'row'
-                }}>
-                    <Text style={{
-                        fontFamily: fonts.secondary[600],
-                        color: colors.white,
-                        fontSize: 14,
-                        flex: 1,
-                    }}>Region</Text>
-                    <Text style={{
-                        flex: 1,
-                        fontFamily: fonts.secondary[400],
-                        color: colors.white,
-                        fontSize: 14
-                    }}>{item.region}</Text>
-                </View>
+
                 <View style={{
                     flexDirection: 'row'
                 }}>
@@ -103,14 +88,17 @@ export default function SHasil({ navigation, route }) {
                 flex: 1,
                 padding: 10,
             }}>
-
+                <MyListData label='Nama Kepala Keluarga' value={item.kepala_keluarga} />
                 <MyListData label='No KK*' value={item.nomor_kk} />
+
                 <MyListData label='Type Rumah*' value={item.tipe_rumah} />
                 <MyListData label='Blok*' value={item.blok_rumah} />
                 <MyListData label='No. Rumah*' value={item.nomor_rumah} />
-                <MyListData label='NIK Karyawan' value={item.nik_karyawan} />
-                <MyListData label='No KTP*' value={item.nomor_ktp} />
                 <MyListData label='Nama Anggota Keluarga*' value={item.nama_anggota_keluarga} />
+                <MyListData label='NIK KTP' value={item.nomor_ktp} />
+                <MyListData label='NIK Karyawan' value={item.nik_karyawan} />
+
+
                 <MyListData label='L/P*' value={item.jenis_kelamin} />
                 <MyListData label='Status Hubungan dalam Keluarga*' value={item.status_hubungan_keluarga} />
                 <MyListData label='Status Perkawinan' value={item.status_perkawinan} />

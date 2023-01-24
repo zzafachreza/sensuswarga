@@ -79,7 +79,7 @@ export default function Riwayat({ navigation }) {
                     alignItems: 'center',
                     justifyContent: 'center'
                 }}>
-                    <TouchableOpacity onPress={() => navigation.navigate('SHasil', item)} style={{
+                    <TouchableOpacity onPress={() => navigation.replace('SHasil', item)} style={{
                         backgroundColor: colors.primary,
                         width: 80,
                         justifyContent: 'center',

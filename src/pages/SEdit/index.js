@@ -23,6 +23,7 @@ export default function SEdit({ navigation, route }) {
         region: route.params.region,
         pt: route.params.pt,
         nomor_kk: route.params.nomor_kk,
+        kepala_keluarga: route.params.kepala_keluarga,
         tipe_rumah: route.params.tipe_rumah,
         blok_rumah: route.params.blok_rumah,
         nomor_rumah: route.params.nomor_rumah,
@@ -64,7 +65,7 @@ export default function SEdit({ navigation, route }) {
             console.log(res.data);
             if (res.data == 200) {
                 Alert.alert('Sensus Warga', 'Data berhasil di simpan !');
-                navigation.goBack();
+                navigation.goBack()
             }
         })
     }
@@ -103,6 +104,7 @@ export default function SEdit({ navigation, route }) {
 
                 <MyInput value={kirim.pt} iconname='create' label='PT' onChangeText={x => { setKirim({ ...kirim, pt: x }) }} />
                 <MyInput value={kirim.nomor_kk} iconname='create' keyboardType='number-pad' label='No KK*' onChangeText={x => { setKirim({ ...kirim, nomor_kk: x }) }} />
+                <MyInput value={kirim.kepala_keluarga} iconname='create' label='Nama Kepala Keluarga' onChangeText={x => { setKirim({ ...kirim, kepala_keluarga: x }) }} />
                 <MyInput value={kirim.tipe_rumah} iconname='create' label='Type*' onChangeText={x => { setKirim({ ...kirim, tipe_rumah: x }) }} />
                 <MyInput value={kirim.blok_rumah} iconname='create' label='Blok*' onChangeText={x => { setKirim({ ...kirim, blok_rumah: x }) }} />
                 <MyInput value={kirim.nomor_rumah} iconname='create' label='No. Rumah*' onChangeText={x => { setKirim({ ...kirim, nomor_rumah: x }) }} />
@@ -144,7 +146,14 @@ export default function SEdit({ navigation, route }) {
 
 
                 <MyInput value={kirim.usia} iconname='create' keyboardType='number-pad' label='Usia' onChangeText={x => { setKirim({ ...kirim, usia: x }) }} />
-                <MyInput value={kirim.agama} iconname='create' label='Agama' onChangeText={x => { setKirim({ ...kirim, agama: x }) }} />
+                <MyPicker value={kirim.agama} iconname="list" onValueChange={x => setKirim({ ...kirim, agama: x })} label="Agama" data={[
+                    { label: 'Islam', value: 'Islam', },
+                    { label: 'Katholik', value: 'Katholik', },
+                    { label: 'Kristen', value: 'Kristen', },
+                    { label: 'Hindu', value: 'Hindu', },
+                    { label: 'Budha', value: 'Budha', },
+
+                ]} />
                 <MyInput value={kirim.suku} iconname='create' label='Suku' onChangeText={x => { setKirim({ ...kirim, suku: x }) }} />
                 <MyInput value={kirim.pendidikan_terakhir} iconname='create' label='Pendidikan Terakhir yang ditamatkan*' onChangeText={x => { setKirim({ ...kirim, pendidikan_terakhir: x }) }} />
                 <MyInput value={kirim.jenjang_pendidikan} iconname='create' label='Jenjang Pendidikan' onChangeText={x => { setKirim({ ...kirim, jenjang_pendidikan: x }) }} />

@@ -20,6 +20,7 @@ export default function SAdd({ navigation, route }) {
         region: '',
         pt: '',
         nomor_kk: '',
+        kepala_keluarga: '',
         tipe_rumah: '',
         blok_rumah: '',
         nomor_rumah: '',
@@ -33,9 +34,9 @@ export default function SAdd({ navigation, route }) {
         alamat_ktp: '',
         alamat_sekarang: '',
         tempat_lahir: '',
-        tanggal_lahir: '',
+        tanggal_lahir: '01/01/2000',
         usia: '',
-        agama: '',
+        agama: 'Islam',
         suku: '',
         pendidikan_terakhir: '',
         jenjang_pendidikan: '',
@@ -93,7 +94,9 @@ export default function SAdd({ navigation, route }) {
 
                 <MyInput iconname='create' label='PT' onChangeText={x => { setKirim({ ...kirim, pt: x }) }} />
                 <MyInput iconname='create' keyboardType='number-pad' label='No KK*' onChangeText={x => { setKirim({ ...kirim, nomor_kk: x }) }} />
+                <MyInput iconname='create' label='Nama Kepala Keluarga' onChangeText={x => { setKirim({ ...kirim, kepala_keluarga: x }) }} />
                 <MyInput iconname='create' label='Type*' onChangeText={x => { setKirim({ ...kirim, tipe_rumah: x }) }} />
+
                 <MyInput iconname='create' label='Blok*' onChangeText={x => { setKirim({ ...kirim, blok_rumah: x }) }} />
                 <MyInput iconname='create' label='No. Rumah*' onChangeText={x => { setKirim({ ...kirim, nomor_rumah: x }) }} />
                 <MyInput iconname='create' label='NIK Karyawan' onChangeText={x => { setKirim({ ...kirim, nik_karyawan: x }) }} />
@@ -119,7 +122,7 @@ export default function SAdd({ navigation, route }) {
 
 
                 <MyInput iconname='create' label='Alamat tinggal Sesuai KTP' onChangeText={x => { setKirim({ ...kirim, alamat_ktp: x }) }} />
-                <MyInput iconname='create' label='Alamat Sekatang' onChangeText={x => { setKirim({ ...kirim, alamat_sekarang: x }) }} />
+                <MyInput iconname='create' label='Alamat Sekarang' onChangeText={x => { setKirim({ ...kirim, alamat_sekarang: x }) }} />
                 <MyInput iconname='create' label='Tempat Lahir' onChangeText={x => { setKirim({ ...kirim, tempat_lahir: x }) }} />
 
                 <MyInput value={kirim.tanggal_lahir} keyboardType='number-pad' maxLength={10} iconname='create' label='Tanggal lahir* contoh : 29/04/1995' onChangeText={x => {
@@ -134,7 +137,19 @@ export default function SAdd({ navigation, route }) {
 
 
                 <MyInput iconname='create' keyboardType='number-pad' label='Usia' onChangeText={x => { setKirim({ ...kirim, usia: x }) }} />
-                <MyInput iconname='create' label='Agama' onChangeText={x => { setKirim({ ...kirim, agama: x }) }} />
+
+
+                <MyPicker iconname="list" onValueChange={x => setKirim({ ...kirim, agama: x })} label="Agama" data={[
+                    { label: 'Islam', value: 'Islam', },
+                    { label: 'Katholik', value: 'Katholik', },
+                    { label: 'Kristen', value: 'Kristen', },
+                    { label: 'Hindu', value: 'Hindu', },
+                    { label: 'Budha', value: 'Budha', },
+
+                ]} />
+
+
+
                 <MyInput iconname='create' label='Suku' onChangeText={x => { setKirim({ ...kirim, suku: x }) }} />
                 <MyInput iconname='create' label='Pendidikan Terakhir yang ditamatkan*' onChangeText={x => { setKirim({ ...kirim, pendidikan_terakhir: x }) }} />
                 <MyInput iconname='create' label='Jenjang Pendidikan' onChangeText={x => { setKirim({ ...kirim, jenjang_pendidikan: x }) }} />
