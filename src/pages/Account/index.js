@@ -121,6 +121,8 @@ export default function ({ navigation, route }) {
                         }} />
                     </View>
                     <MyList label="NIK" value={user.nik} />
+                    <MyList label="No. KK" value={user.no_kk} />
+                    <MyList label="NIK Karyawan" value={user.nik_karyawan} />
                     <MyList label="Nama Lengkap" value={user.nama_lengkap} />
                     <MyList label="Email" value={user.email} />
                     <MyList label="Telepon / Whatsapp" value={user.telepon} />

@@ -90,8 +90,6 @@ export default function SAdd({ navigation, route }) {
 
 
             <ScrollView showsVerticalScrollIndicator={false}>
-                <MyPicker iconname="list" onValueChange={x => setKirim({ ...kirim, region: x })} label="Region" data={region} />
-
                 <MyInput iconname='create' label='PT' onChangeText={x => { setKirim({ ...kirim, pt: x }) }} />
                 <MyInput iconname='create' keyboardType='number-pad' label='No KK*' onChangeText={x => { setKirim({ ...kirim, nomor_kk: x }) }} />
                 <MyInput iconname='create' label='Nama Kepala Keluarga' onChangeText={x => { setKirim({ ...kirim, kepala_keluarga: x }) }} />

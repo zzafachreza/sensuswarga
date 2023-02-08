@@ -48,6 +48,8 @@ export default function Register({ navigation }) {
         password: '',
         email: '',
         nama_lengkap: '',
+        no_kk: '',
+        nik_karyawan: '',
         nik: '',
         telepon: '',
     });
@@ -56,13 +58,26 @@ export default function Register({ navigation }) {
         if (
             data.nama_lengkap.length === 0 &&
             data.telepon.length === 0 &&
+            data.nik_karyawan.length === 0 &&
+            data.no_kk.length === 0 &&
             data.nik.length === 0 &&
-            data.email.length === 0 &&
             data.password.length === 0
 
         ) {
             showMessage({
                 message: 'Maaf Semua Field Harus Di isi !',
+            });
+        } else if (data.nik.length === 0) {
+            showMessage({
+                message: 'Maaf nik masih kosong !',
+            });
+        } else if (data.no_kk.length === 0) {
+            showMessage({
+                message: 'Maaf nomor kk masih kosong !',
+            });
+        } else if (data.nik_karyawan.length === 0) {
+            showMessage({
+                message: 'Maaf nik karyawan masih kosong !',
             });
         } else if (data.nama_lengkap.length === 0) {
             showMessage({
@@ -72,10 +87,6 @@ export default function Register({ navigation }) {
         else if (data.telepon.length === 0) {
             showMessage({
                 message: 'Maaf telepon masih kosong !',
-            });
-        } else if (data.nik.length === 0) {
-            showMessage({
-                message: 'Maaf nik masih kosong !',
             });
         } else if (data.password.length === 0) {
             showMessage({
@@ -129,6 +140,34 @@ export default function Register({ navigation }) {
                         setData({
                             ...data,
                             nik: value,
+                        })
+                    }
+                />
+                <MyInput
+
+                    label="NO KK*"
+                    iconname="card"
+                    keyboardType="number-pad"
+                    placeholder="Masukan nomor kk"
+                    value={data.no_kk}
+                    onChangeText={value =>
+                        setData({
+                            ...data,
+                            no_kk: value,
+                        })
+                    }
+                />
+                <MyInput
+
+                    label="NIK Karyawan"
+                    iconname="card"
+                    keyboardType="number-pad"
+                    placeholder="Masukan nomor nik karyawan"
+                    value={data.nik_karyawan}
+                    onChangeText={value =>
+                        setData({
+                            ...data,
+                            nik_karyawan: value,
                         })
                     }
                 />

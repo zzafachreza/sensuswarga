@@ -45,14 +45,7 @@ export default function Riwayat({ navigation }) {
                 <View style={{
                     flex: 1,
                 }}>
-                    <View style={{
 
-                        flexDirection: 'row'
-                    }}>
-                        <Text style={{ flex: 0.5, }}>Region</Text>
-                        <Text style={{ flex: 0.1, }}>:</Text>
-                        <Text style={{ flex: 1, }}>{item.region}</Text>
-                    </View>
                     <View style={{
                         flexDirection: 'row'
                     }}>
