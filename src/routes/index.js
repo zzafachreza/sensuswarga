@@ -26,6 +26,7 @@ import {
   Riwayat,
   AccountEdit,
   SEdit,
+  SAdd2,
 } from '../pages';
 import { colors } from '../utils';
 
@@ -60,7 +61,20 @@ export default function Router() {
         component={SAdd}
         options={{
           headerShown: true,
-          headerTitle: 'Input Manual',
+          headerTitle: 'Input Penduduk',
+          headerStyle: {
+            backgroundColor: colors.primary,
+          },
+          headerTintColor: '#fff',
+        }}
+      />
+
+      <Stack.Screen
+        name="SAdd2"
+        component={SAdd2}
+        options={{
+          headerShown: true,
+          headerTitle: 'Input Anggota Keluarga',
           headerStyle: {
             backgroundColor: colors.primary,
           },

@@ -22,6 +22,7 @@ import Account from './Account';
 import Riwayat from './Riwayat';
 import AccountEdit from './AccountEdit';
 import SEdit from './SEdit';
+import SAdd2 from './SAdd2';
 
 // NEW
 
@@ -65,6 +66,7 @@ export {
   Account,
   Riwayat,
   AccountEdit,
-  SEdit
+  SEdit,
+  SAdd2
 
 };
