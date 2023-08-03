@@ -101,7 +101,7 @@ export default function SAdd2({ navigation, route }) {
                         color: colors.secondary
                     }}>{kirim.nomor_kk}</Text>
                 </View>
-                <MyInput iconname='create' keyboardType='number-pad' label='No KTP*' onChangeText={x => { setKirim({ ...kirim, nomor_ktp: x }) }} />
+                <MyInput iconname='create' maxLength={16} keyboardType='number-pad' label='No KTP*' onChangeText={x => { setKirim({ ...kirim, nomor_ktp: x }) }} />
                 <MyInput iconname='create' label='Nama Anggota Keluarga*' onChangeText={x => { setKirim({ ...kirim, nama_anggota_keluarga: x }) }} />
                 <MyPicker iconname="list" onValueChange={x => setKirim({ ...kirim, jenis_kelamin: x })} label="L/P*" data={[
                     { label: 'L', value: 'L', },
